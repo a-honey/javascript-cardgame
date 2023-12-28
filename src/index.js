@@ -1,4 +1,6 @@
-import '../index.css';
+import "../index.css";
+import Cards from "./Card";
 
-// 실제 실행 코드 작성
-// ex)cardGame.start()
+const cards = new Cards(3);
+
+cards.start();

@@ -1,11 +1,10 @@
 class Card {
-  constructor(isWinningCard, position, resetCallback, cardsInstance) {
+  constructor(isWinningCard, position, cardsInstance) {
     this.cardElement = this.createCardElement("카드입니다");
     this.isWinningCard = isWinningCard;
     this.cardsInstance = cardsInstance;
     this.position = position;
     this.handleCardClick();
-    this.resetCallback = resetCallback;
   }
 
   createCardElement(text) {
@@ -29,7 +28,7 @@ class Card {
 
     const resetButton = document.createElement("button");
     resetButton.innerText = "다시 하기";
-    resetButton.addEventListener("click", () => this.resetCallback());
+    resetButton.addEventListener("click", () => this.cardsInstance.resetGame());
 
     contents.appendChild(resetButton);
   }
@@ -55,9 +54,9 @@ class Cards {
 
     this.cardList = Array.from(
       { length: count - 1 },
-      (_, index) => new Card(false, index, () => this.resetGame(), this)
+      (_, index) => new Card(false, index, this)
     );
-    this.cardList.push(new Card(true, count - 1, () => this.resetGame(), this));
+    this.cardList.push(new Card(true, count - 1, this));
   }
 
   shuffle() {
@@ -69,6 +68,7 @@ class Cards {
     const contentsElement = document.querySelector("#cards");
 
     contentsElement.innerHTML = "";
+    this.shuffle();
     this.cardList.forEach((card) => {
       contentsElement.appendChild(card.cardElement);
     });

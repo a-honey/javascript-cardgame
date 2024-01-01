@@ -1,14 +1,14 @@
 class Card {
   constructor(isWinningCard) {
-    this.cardElement = this.createCardElement();
+    this.cardElement = this.createCardElement("카드입니다");
     this.isWinningCard = isWinningCard;
     this.handleCardClick();
   }
 
-  createCardElement() {
+  createCardElement(text) {
     const button = document.createElement("button");
     button.className = "card";
-    button.innerText = "카드입니다";
+    button.innerText = text;
     return button;
   }
 

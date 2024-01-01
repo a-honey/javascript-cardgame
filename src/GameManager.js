@@ -1,4 +1,4 @@
-import Cards from "./Card";
+import Cards from "./Cards";
 
 class GameManager {
   constructor(count) {

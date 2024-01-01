@@ -1,6 +1,6 @@
 import "../index.css";
-import Cards from "./Card";
+import GameManager from "./GameManager";
 
-const cards = new Cards(3);
+const gameManager = new GameManager(3);
 
-cards.start();
+gameManager.start();

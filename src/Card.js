@@ -43,13 +43,6 @@ class Cards {
   shuffle() {
     this.cardList.sort(() => Math.random() - 0.5);
   }
-
-  start() {
-    const contentsElement = document.querySelector("#cards");
-    this.cardList.forEach((card) => {
-      contentsElement.appendChild(card.cardElement);
-    });
-  }
 }
 
 export default Cards;

@@ -32,6 +32,8 @@ class Cards {
       if (card.isClicked) {
         if (card.isWinningCard) {
           card.updateInnerText("당첨");
+          alert("당첨되었습니다.");
+          return;
         } else {
           card.updateInnerText("꽝");
           this.reduceChance();

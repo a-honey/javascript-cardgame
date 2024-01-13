@@ -13,6 +13,7 @@ h1 {
   background-color: yellow;
   padding: 40px;
   border-radius: 15px;
+  position: relative;
 }
 
 .card {
@@ -23,4 +24,17 @@ h1 {
   border-radius: 5px;
   border: 0px;
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.restart {
+  position: absolute;
+  top: 40%;
+  right: 40%;
+  left: 40%;
+  bottom: 40%;
+  font-weight: 700;
+  font-size: 20px;
+  background-color: white;
+  border: 0;
+  border-radius: 5px;
 }

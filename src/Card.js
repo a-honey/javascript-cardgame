@@ -1,8 +1,10 @@
 class Card {
-  constructor(isWinningCard) {
+  constructor(isWinningCard, renderCards) {
     this.cardElement = this.createCardElement("카드입니다");
     this.isWinningCard = isWinningCard;
+    this.isClicked = false;
     this.handleCardClick();
+    this.renderCards = renderCards;
   }
 
   createCardElement(text) {
@@ -12,15 +14,15 @@ class Card {
     return button;
   }
 
-  selectCard() {
-    const contents = document.querySelector("#cards");
-    contents.innerText = this.isWinningCard ? "당첨입니다" : "꽝입니다!";
-  }
-
   handleCardClick() {
     this.cardElement.addEventListener("click", () => {
-      this.selectCard();
+      this.isClicked = true;
+      this.renderCards();
     });
+  }
+
+  updateInnerText(text) {
+    this.cardElement.innerText = text;
   }
 }
 
